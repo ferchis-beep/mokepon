@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8"/>
+        <title> MOKEPON! </title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <section id = "Seleccionar-mascota">
+            <h1 class = "titulo"> Mokepon </h1>
+
+            <h2 class ="subtitulo"> Elige tu mascota: </h2>
+
+            <div id="contenedorTarjetas" class = "tarjetas">
+                      
+                
+            </div>
+            
+            <button id="boton-mascota">Seleccionar</button>
+
+        </section>
+
+        <section id = "Seleccionar-ataque">
+            <h1 class = "titulo"> Mokepon </h1>
+
+            <h2 class ="subtitulo"> Elige tu ataque: </h2>
+
+            <div id="contenedorAtaques" class="tarjetas-ataques">
+                <
+            </div>
+
+            <div>
+                <section id="reiniciar" >
+                    <button id ="boton-reiniciar" class="boton-reset">reiniciar</button>
+               </section> 
+            </div>
+            <div class="ataques" >
+                <div>
+
+                    <p class = "vidas"> Vidas <span id ="vidas-jugador"> 3 </span> </p>
+                    <p id="mascota-jugador"></p>
+                    <p class="mensaje resultado"> <span id ="ataque-jugador"> </span> </p> 
+                </div>
+                <div>
+                    <p class = "vidas"> Vidas <span id="vidas-enemigo"> 3 </span> </p>
+                    <p id="mascota-enemigo"></p>
+                    <p class="mensaje resultado"> <span id ="ataque-enemigo"></span> </p>
+                </div>
+                
+            </div>
+            
+            <div>
+                <section id="mensajes" class="mensaje resultado">
+                    <p> Resultado  <span id = "resultado"></span> </p>
+                </section> 
+            </div>
+           
+        </section>
+
+        <script src="./js/mokepon.js"></script>                   
+    </body>
+</html>
