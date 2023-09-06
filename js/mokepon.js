@@ -91,7 +91,6 @@ function iniciarJuego()
     inputHipodoge = document.getElementById("Hipodoge") 
     inputCapipepo = document.getElementById("Capipepo")
     inputRatigueya = document.getElementById("Ratigueya") 
-
     })
 
     selectionMensajeAtaque = document.getElementById("mensajes")
