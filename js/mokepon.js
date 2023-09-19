@@ -181,15 +181,19 @@ function seleccionarMascotaEnemigo()
 }
 
 function selecionarAtaqueEnemigo(){
-    ataqueEnemigo = aleatorio(0,ataquesMokeponEnemigo.length - 1)
-    if (ataqueEnemigo == 0 || ataqueEnemigo ==1){
+    let ataqueAleatorio = aleatorio(0,ataquesMokeponEnemigo.length - 1)
+    if (ataqueAleatorio == 0 || ataqueEnemigo ==1){
         spanAtaqueEnemigo.innerHTML.push = "Fuego"   
-    }else if (ataqueEnemigo == 3 || ataqueEnemigo ==4) {
+    }else if (ataqueAleatorio == 3 || ataqueEnemigo ==4) {
         spanAtaqueEnemigo.innerHTML.push = "Agua" 
     }else {
         spanAtaqueEnemigo.innerHTML.push = "Tierra" 
     }
-    console.log(ataqueEnemigo)
+    console.log(ataqueAleatorio)
+    iniciarPelea()
+}
+function iniciarPelea(){
+    if(ataqueJugador.length === 5)
     resultadoAtaqueJugadores()
 }
 
