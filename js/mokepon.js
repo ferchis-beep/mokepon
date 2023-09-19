@@ -199,6 +199,10 @@ function iniciarPelea(){
 
 function resultadoAtaqueJugadores()
 {        
+    for (let index = 0; index < ataqueJugador.length; index++) {
+        console.log(ataqueJugador[index])
+        
+    }
     if (ataqueJugador == ataqueEnemigo){
         resultadoAtaques.innerHTML = "Empate😒😒"
     } else if(ataqueJugador == 1 && ataqueEnemigo == 3){
