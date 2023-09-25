@@ -28,6 +28,8 @@ let botonFuego
 let botonAgua      
 let botonTierra 
 let botones = []
+let indexAtaqueJugador
+let indexAtaqueEnemigo
 let vidasJugador  = 3
 let vidasEnemigo  = 3
 let selectionMensajeAtaque
@@ -197,45 +199,65 @@ function iniciarPelea(){
     resultadoAtaqueJugadores()
 }
 
+function indexAmbosOponentes(jugador,enemigo){
+    indexAtaqueJugador = ataqueEnemigo[jugador]
+    indexAtaqueEnemigo = ataqueEnemigo[enemigo]
+}
+
 function resultadoAtaqueJugadores()
 {        
     for (let index = 0; index < ataqueJugador.length; index++) {
-        console.log(ataqueJugador[index])
+        if(ataqueJugador[index] == spanAtaqueEnemigo[index]){
+            indexAmbosOponentes(index,index)
+            resultadoAtaques.innerHTML = "Empate😒😒"
+        }
         
     }
     if (ataqueJugador == ataqueEnemigo){
-        resultadoAtaques.innerHTML = "Empate😒😒"
+        crearMensaje("Empate😒😒")
     } else if(ataqueJugador == 1 && ataqueEnemigo == 3){
-        resultadoAtaques.innerHTML = "Ganaste🥳"
+        crearMensaje("Ganaste🥳")  
         vidasEnemigo-- 
         spanVidasEnemigo.innerHTML = vidasEnemigo 
     } else if(ataqueJugador == 2 && ataqueEnemigo == 1){
-        resultadoAtaques.innerHTML = "Ganaste🥳"
+        crearMensaje("Ganaste🥳")
         vidasEnemigo-- 
         spanVidasEnemigo.innerHTML = vidasEnemigo 
     } else if(ataqueJugador == 3 && ataqueEnemigo == 2){
-        resultadoAtaques.innerHTML = "Ganaste🥳"
+        crearMensaje("Ganaste🥳")
         vidasEnemigo-- 
         spanVidasEnemigo.innerHTML = vidasEnemigo 
     } else {
-        resultadoAtaques.innerHTML = "Perdiste😿😿"
+        crearMensaje("Perdiste😿😿") 
         vidasJugador --
         spanVidasJugador.innerHTML = vidasJugador
     }    
     revisarVidas()
 }
 
+
 function revisarVidas(){
    
     if(vidasEnemigo == 0){
-        alert("Ganaste 😀🎉🪅🥳")
+        crearMensajeFinal("Ganaste 😀🎉🪅🥳")
         reset() 
         botonReset()  
     } else if (vidasJugador == 0){
-        alert("Perdiste 😿😭")
+        crearMensajeFinal("Perdiste 😿😭")
         reset()  
         botonReset()
     } 
+}
+function crearMensaje(resultado){
+    let nuevoAtaqueDelJugador = document.createElement("p")
+    let nuevoAtaqueDelEnemigo = document.createElement("p")
+    
+    selectionMensajes.innerHTML = resultado 
+    nuevoAtaqueDelJugador.innerHTML = indexAtaqueJugador
+    nuevoAtaqueDelEnemigo.innerHTML = indexAtaqueEnemigo
+
+    ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
+    ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
 }
 
 function reiniciarJuego(){
