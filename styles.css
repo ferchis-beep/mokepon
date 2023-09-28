@@ -76,7 +76,7 @@ input:checked + label {
   box-sizing: border-box;
   border-radius:20px ;
   border-color: #AFB4FF;
-  width: 100px;
+  width: 80px;
   color: rgb(59, 48, 34);
   font-family: "Poppins", sans-serif;
  }
@@ -94,7 +94,7 @@ input:checked + label {
 
 #boton-reiniciar {
   border: none;
-  color: #AFB4FF;
+  color: #030413;
   font-family: "Poppins" , sans-serif;
 }
 
@@ -113,6 +113,17 @@ input:checked + label {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#ver-mapa{
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+}
+
+#mapa{
+  border: 2px solid white;
+
 }
 
 @media (max-width: 360px) {
