@@ -42,6 +42,7 @@ let victoriasEnemigo = 0
 let vidasJugador  = 3
 let vidasEnemigo  = 3
 let lienzo = mapa.getContext("2d")
+let intervalo
 
 
 class Mokepon {
@@ -50,6 +51,14 @@ class Mokepon {
         this.foto = foto
         this.vida = vida
         this.ataques = []
+        this.x = 20
+        this.y = 30
+        this.ancho = 80
+        this.alto = 80
+        this.mapaFoto = new Image()
+        this.mapaFoto.src = foto
+        this.velocidadx = 0
+        this.velocidady = 0
     }
 }
 
@@ -122,15 +131,9 @@ function seleccionarMascotaJugador(){
     
     //sectionSeleccionarAtaque.style.display = "flex"
     sectionVerMapa.style.display = "flex"
-    let imagenDeCapipepo = new Image()
-    imagenDeCapipepo.src = capipepo.foto
-    lienzo.drawImage(
-        imagenDeCapipepo,
-        20,
-        40,
-        100,
-        100
-    )
+    intervalo = setInterval(pintarPersonaje, 50)
+    
+  
 
 
     if(inputHipodoge.checked){
@@ -292,10 +295,7 @@ function crearMensaje(resultado) {
 }
 
 function crearMensajeFinal(resultadoFinal){
-
-
     sectionMensajes.innerHTML = resultadoFinal
-
     sectionReiniciar.style.display = "block"
 }
 
@@ -305,6 +305,39 @@ function reiniciarJuego(){
 
 function aleatorio (min,max){
     return Math.floor(Math.random() * (max - min + 1) + min) 
+}
+
+function pintarPersonaje() {
+    capipepo.x = capipepo.x + capipepo.velocidadx
+    capipepo.y = capipepo.y + capipepo.velocidady
+    lienzo.clearRect(0,0, mapa.clientWidth, mapa.height)
+    lienzo.drawImage(
+        capipepo.mapaFoto,
+        capipepo.x,
+        capipepo.y,
+        capipepo.ancho,
+        capipepo.alto
+    )
+}
+
+function moverDerecha() {
+    capipepo.velocidadx = 5
+}
+function moverIzquierda() {
+    capipepo.velocidadx = -5
+}
+function moverAbajo() {
+    capipepo.velocidady = 5
+    pintarPersonaje()
+}
+function moverArriba() {
+    capipepo.velocidady = - 5
+    pintarPersonaje()
+}
+
+function detenerMovimiento(){
+    capipepo.velocidadx = 0
+    capipepo.velocidady = 0
 }
 
 window.addEventListener('load', iniciarJuego)
