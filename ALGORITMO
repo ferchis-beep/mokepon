@@ -1,0 +1,51 @@
+// Función para calcular el área y el perímetro de un triángulo
+
+{
+
+function calcularPerimetro(a, b, c, π, r){
+        if (triangulo) {
+        perimetroTriangulo = a + b + c
+        return{ perimetroTriangulo} 
+        }
+        if (recatngulo) {
+            perimetroRectangulo = 2 * (b + a)
+            return{perimetroRectangulo}
+        }
+        if (cuadrado) {
+            perimetroCuadrado = 4 * a
+            return{ perimetroCuadrado}
+        }
+        if  (circulo){
+            perimetroCirculo = 2 * π * (r*r)
+            return{ perimetroCirculo}
+        }
+}
+
+function calcularArea (a, b, c, π, r,h){
+        if (triangulo) {
+            areaTriangulo = b * h / 2
+            return{ areaTriangulo} 
+        }
+        if (recatngulo) {
+            areaRectangulo = b * a
+            return{areaRectangulo}
+        }
+        if (cuadrado) {
+            areaCuadrado = a * a
+            return{ areaCuadrado}
+        }
+        if  (circulo){
+            areaCirculo = π * (r*r)
+            return{ areaCirculo}
+        }
+        else {
+            return "información no valida" 
+        }
+  
+    alert(`El área es: ${ calcularArea}\nEl perímetro es: ${calcularPerimetro}`);
+  }
+
+  calcularPerimetro();
+  calcularArea();
+
+}
