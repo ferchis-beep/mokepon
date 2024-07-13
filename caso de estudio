@@ -1,0 +1,90 @@
+{
+    Portada
+    Autor: [Tu Nombre]
+    Fecha: [Fecha de Entrega]
+    Curso: [Nombre del Curso]
+    Profesor: [Nombre del Profesor]
+
+    Introducción
+    En el presente documento se elabora un modelo entidad-relación (ERD) para un sistema de gestión de pedidos. El modelo entidad-relación es una herramienta fundamental para la representación de datos, permitiendo identificar las entidades involucradas en un proceso de negocio, sus atributos y las relaciones entre ellas. Este análisis facilita el diseño y desarrollo del software, asegurando que los requisitos del sistema sean comprendidos y representados adecuadamente.
+
+// Entidades y Atributos
+    1. **Cliente**
+   - ID_Cliente (PK)
+   - Nombre
+   - Dirección
+   - Teléfono
+   - Email
+
+2. **Pedido**
+   - ID_Pedido (PK)
+   - Fecha
+   - Total
+   - ID_Cliente (FK)
+
+3. **Producto**
+   - ID_Producto (PK)
+   - Nombre
+   - Descripción
+   - Precio
+
+4. **Detalle_Pedido**
+   - ID_Pedido (FK, PK)
+   - ID_Producto (FK, PK)
+   - Cantidad
+   - Subtotal
+
+//Tipos de Relaciones y Cardinalidad
+
+1. **Relaciones entre entidades**
+   - **Cliente** (1) --- (N) **Pedido**
+   - **Pedido** (1) --- (N) **Detalle_Pedido**
+   - **Producto** (1) --- (N) **Detalle_Pedido**
+
+2. **Cardinalidad**
+   - Un cliente puede realizar muchos pedidos.
+   - Un pedido puede tener muchos detalles de pedidos.
+   - Un producto puede estar en muchos detalles de pedidos.
+
+//Claves y Tipos de Claves
+1. **Cliente**
+   - Clave Primaria: ID_Cliente
+
+2. **Pedido**
+   - Clave Primaria: ID_Pedido
+   - Clave Foránea: ID_Cliente
+
+3. **Producto**
+   - Clave Primaria: ID_Producto
+
+4. **Detalle_Pedido**
+   - Claves Primarias Compuestas: ID_Pedido, ID_Producto
+   - Claves Foráneas: ID_Pedido, ID_Producto
+
+//Modelo Entidad-Relación
++----------------+          +----------------+          +-----------------+
+|   Cliente      |          |   Pedido       |          |   Producto      |
++----------------+          +----------------+          +-----------------+
+| ID_Cliente (PK)|<---------| ID_Pedido (PK) |          | ID_Producto (PK)|
+| Nombre         |          | Fecha          |          | Nombre          |
+| Dirección      |          | Total          |          | Descripción     |
+| Teléfono       |          | ID_Cliente (FK)|          | Precio          |
+| Email          |          +----------------+          +-----------------+
++----------------+                 |
+                                    |
+                                    |1           N
+                                    |           |
+                          +---------v-----------v-------+
+                          |      Detalle_Pedido         |
+                          +-----------------------------+
+                          | ID_Pedido (FK, PK)          |
+                          | ID_Producto (FK, PK)        |
+                          | Cantidad                    |
+                          | Subtotal                    |
+                          +-----------------------------+
+
+
+Conclusiones
+
+La elaboración del modelo entidad-relación para el sistema de gestión de pedidos ha permitido identificar y estructurar de manera clara y concisa las entidades, sus atributos y las relaciones entre ellas. Este análisis es fundamental para el diseño y desarrollo del software, asegurando que los requisitos del sistema se comprendan y representen adecuadamente. El ERD no solo facilita la comunicación entre los desarrolladores y los interesados, sino que también proporciona una base sólida para la implementación de la base de datos.
+}
